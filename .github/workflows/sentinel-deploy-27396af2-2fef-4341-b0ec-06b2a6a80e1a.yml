@@ -25,7 +25,7 @@ jobs:
       workspaceName: 'eye-cloud-security-monitoring-workspace'
       directory: '${{ github.workspace }}'
       cloudEnv: 'AzureCloud'
-      creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_27396af22fef4341b0ec06b2a6a80e1a }}
+      creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_EYEALATA }}
       contentTypes: 'AnalyticsRule'
 
     steps:
@@ -35,7 +35,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_27396af22fef4341b0ec06b2a6a80e1a }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_EYEALATA }}
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 1 failed
@@ -48,7 +48,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login1.outcome=='failure' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_27396af22fef4341b0ec06b2a6a80e1a }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_EYEALATA }}
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 2 failed
@@ -61,7 +61,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login2.outcome=='failure'  }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_27396af22fef4341b0ec06b2a6a80e1a }}
+        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_EYEALATA }}
         enable-AzPSSession: true
 
     - name: Checkout
