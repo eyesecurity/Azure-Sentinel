@@ -67,7 +67,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        ref: ${{ github.head_ref }}
+        ref: master
         fetch-depth: 0
     
     - name: Deploy Content to Azure Sentinel
